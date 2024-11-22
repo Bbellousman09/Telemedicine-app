@@ -1,0 +1,115 @@
+<!DOCTYPE html>  
+<html lang="en">  
+
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Login</title>  
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS here -->  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif; /* Basic styling */  
+            background-color: #f8f9fa; /* Light background for contrast */  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh; /* Full height for centering */  
+            margin: 0; /* Remove default margin */  
+        }  
+
+        .login-container {  
+            background-color: white; /* White background for the form */  
+            border-radius: 8px; /* Rounded corners */  
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow */  
+            padding: 20px; /* Padding inside the form */  
+            width: 300px; /* Width of the login form */  
+        }  
+
+        h2 {  
+            text-align: center; /* Center the heading */  
+            color: #333; /* Dark heading color */  
+        }  
+
+        .form-group {  
+            margin-bottom: 15px; /* Space between form groups */  
+        }  
+
+        label {  
+            display: block; /* Ensure labels are on a new line */  
+            margin-bottom: 5px; /* Space below the label */  
+            color: #555; /* Label color */  
+        }  
+
+        input[type="text"],  
+        input[type="password"] {  
+            width: 100%; /* Full width for input fields */  
+            padding: 10px; /* Inner padding for input fields */  
+            border: 1px solid #ccc; /* Border for input fields */  
+            border-radius: 4px; /* Rounded corners for input */  
+            box-sizing: border-box; /* Include padding in total width */  
+        }  
+
+        .login-button {  
+            width: 100%; /* Full width for button */  
+            padding: 10px;  
+            background-color: lightseagreen; /* Button color */  
+            color: white; /* Button text color */  
+            border: none; /* No border */  
+            border-radius: 4px; /* Rounded corners */  
+            cursor: pointer; /* Pointer cursor on hover */  
+            font-size: 16px; /* Button text size */  
+        }  
+
+        .login-button:hover {  
+            background-color: #45a049; /* Darker shade on hover */  
+        }  
+
+        .error-message {  
+            color: red; /* Red color for error messages */  
+            text-align: center; /* Center error messages */  
+        }  
+
+        .footer {  
+            text-align: center; /* Center footer content */  
+            margin-top: 20px; /* Space above footer */  
+            color: #555; /* Footer text color */  
+        }  
+    </style>  
+</head>  
+
+<body>  
+    <div class="login-container">  
+        <h2>Log In</h2>  
+        <form id="loginForm" method="POST" action="login-handler.php"> <!-- Replace with your login processing page -->  
+            <div class="form-group">  
+                <label for="username">Username:</label>  
+                <input type="text" id="username" name="username" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="password">Password:</label>  
+                <input type="password" id="password" name="password" required>  
+            </div>  
+            <button type="submit" class="login-button">Log In</button>  
+        </form>  
+        <div class="error-message" id="error-message" style="display: none;">Invalid username or password.</div>  
+        <div class="footer">  
+            <p>Don't have an account? <a href="register.html">Sign up</a></p> <!-- Link to signup page -->  
+        </div>  
+    </div>  
+
+    <script>  
+        // Optional JavaScript for handling form submission  
+        document.getElementById('loginForm').addEventListener('submit', function (event) {  
+            let username = document.getElementById('username').value;  
+            let password = document.getElementById('password').value;  
+
+            // Example validation (replace with your actual login logic)  
+            if (username === "" || password === "") {  
+                event.preventDefault(); // Prevent form submission  
+                document.getElementById('error-message').style.display = 'block'; // Show error message  
+            }  
+        });  
+    </script>  
+</body>  
+
+</html>
