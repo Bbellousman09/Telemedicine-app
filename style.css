@@ -1,0 +1,127 @@
+         body {  
+            display: flex;  
+            flex-direction: column;  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+        }  
+        header {   
+            background-color: grey; 
+            color: lightseagreen;  
+            padding: 15px;  
+            text-align: center;   
+        }  
+        .logo {  
+            width: 100px;  
+            height: auto;   
+        }  
+        .menu {  
+            display: inline-block; 
+        }  
+        .menu.active {  
+            display: block; /* Show when active */  
+        }  
+
+        .hamburger {  
+            display: none; /* Hidden by default */  
+            flex-direction: column;  
+            cursor: pointer;  
+        }  
+
+        .hamburger div {  
+            width: 25px;  
+            height: 3px;  
+            background-color: rgb(241, 236, 236);  
+            margin: 3px 0;  
+            transition: 0.4s;  
+        }  
+        nav {  
+            background-color: black;  
+            padding: 10px;
+            text-align: center;  
+        }  
+        nav a {  
+            color: white;  
+            padding: 14px 20px;  
+            text-decoration: none;  
+            margin-right: 10px;  
+        }  
+        nav a:focus {  
+            outline: 2px solid lightseagreen; /* Add a visual cue for focused links */  
+        }
+        nav a:hover {  
+            background-color: #ddd;  
+            color: black;  
+        }  
+        img {
+            height: 200px;
+            width: auto;
+        }
+        .container {  
+            display: flex;  
+            flex-wrap: wrap; /* Allow wrapping of sidebar and main content */  
+        }  
+        .sidebar {  
+            width: 20%; /* Sidebar takes 25% */  
+            background-color: lightseagreen;  
+            padding: 15px;  
+            box-sizing: border-box; /* Include padding in width calculation */ 
+            color: white; 
+        } 
+        .main-content {  
+            flex: 1;   
+            padding: 15px;  
+            box-sizing: border-box;  
+        }  
+        footer {  
+            background-color: black;  
+            color: white;  
+            text-align: center;  
+            padding: 10px;  
+            position: relative;  
+            bottom: 0;  
+            width: 100%;  
+        }  
+
+        /* Media Queries for Responsiveness */  
+        @media (max-width: 768px) {  
+            .sidebar {  
+                width: 100%; /* Take full width on smaller screens */  
+                order: 1; /* Move sidebar after main content */  
+            }  
+            .main-content {  
+                order: 2; /* Main content comes first */
+                font-size: 0.9em; /* Slightly smaller font size for mobile users */  
+            }  
+            nav {  
+                text-align: center; /* Center navigation links */  
+            }  
+            nav a {  
+                display: none; /* Stack navigation links */    
+            }  
+            nav .hamburger {  
+                display: flex; /* Show hamburger icon */  
+            }  
+            nav.open .menu {  
+                display: flex; /* Show menu when open */  
+                flex-direction: column;  
+                width: 100%;  
+                position: absolute;  
+                top: 100%;  
+                left: 0;  
+                background-color: #333;  
+            }  
+
+            nav.open a {  
+                display: block; /* Show links when open */  
+            }  
+            
+        }  
+        
+        @media (max-width: 480px) {  
+            header h1 {  
+                font-size: 1.5em; /* Smaller font size for header */  
+            }  
+            nav a {  
+                padding: 10px; /* Adjust padding */  
+            }  
+        }  
