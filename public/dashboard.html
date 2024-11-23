@@ -1,0 +1,61 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dashboard</title>  
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file if you have one -->  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            margin: 0;  
+            padding: 0;  
+        }  
+
+        .container {  
+            max-width: 1200px;  
+            margin: 0 auto;  
+            padding: 20px;  
+        }  
+
+        h1 {  
+            text-align: center;  
+            color: #333;  
+        }  
+
+        .links {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: space-around;  
+            margin-top: 30px;  
+        }  
+
+        .link {  
+            background-color: lightseagreen;  
+            color: white;  
+            padding: 20px;  
+            margin: 10px;  
+            text-align: center;  
+            border-radius: 5px;  
+            text-decoration: none;  
+            width: 200px;  
+            transition: background-color 0.3s;  
+        }  
+
+        .link:hover {  
+            background-color: #45a049;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Welcome to Your Dashboard</h1>  
+        <div class="links">  
+            <a href="hospitals.html" class="link">Hospitals</a>  
+            <a href="doctors.html" class="link">Doctors</a>   
+            <a href="book-appointment.html" class="link">Book Appointment</a>  
+        </div>  
+    </div>  
+</body>  
+</html>

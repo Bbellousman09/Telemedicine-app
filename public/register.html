@@ -118,12 +118,13 @@
                     body: JSON.stringify(userData) 
                 });
                 
-                const responseData = await response.text(); // Get response text
+                const responseData = await response.json(); // Get response JSON
                 
                 if (response.status === 201) {
-                    successMessage.textContent = responseData; // Display success message
+                    successMessage.textContent = responseData.message; // Display success message
+                    window.location.href = responseData.redirect; // Redirect to login page
                 } else {
-                    errorMessage.textContent = responseData || 'Registration failed'; // Display error message
+                    errorMessage.textContent = responseData.message || 'Registration failed'; // Display error message
                 }
             } catch (error) {
                 console.error('Error:', error);

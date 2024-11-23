@@ -65,12 +65,13 @@ app.post('/register', async (req, res) => {
             email,
             password: hashedPassword,  
         });  
-        res.status(201).send('User registered successfully!');  
+        res.status(201).json({ message: 'User registered successfully!', redirect: '/login.html' });  
     } catch (error) {  
         console.error('Registration error:', error);  
         res.status(500).send('Internal Server Error');  
     }  
-});  
+});
+
 
 // User login endpoint  
 app.post('/login', async (req, res) => {  
@@ -84,7 +85,8 @@ app.post('/login', async (req, res) => {
 
         const isPasswordValid = await bcrypt.compare(password, user.password);  
         if (isPasswordValid) {  
-            res.send('Login successful!');  
+            console.log('Login successful for user:', user.username); // Log the username
+            res.status(200).json({ message: 'Login successful!', redirect: '/dashboard.html', username: user.username });  
         } else {  
             res.status(401).send('Invalid username or password.');  
         }  
@@ -92,7 +94,10 @@ app.post('/login', async (req, res) => {
         console.error('Login error:', error);  
         res.status(500).send('Internal Server Error');  
     }  
-});  
+});
+
+
+
 
 app.listen(PORT, () => {  
     console.log(`Server is running on http://localhost:${PORT}`);  
