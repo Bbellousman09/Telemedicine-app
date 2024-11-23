@@ -58,6 +58,12 @@
             margin: 10px 0;  
             text-align: center;  
         }  
+
+        .success {  
+            color: green;  
+            margin: 10px 0;  
+            text-align: center;  
+        }  
     </style>  
 </head>  
 <body>  
@@ -66,6 +72,7 @@
         <h2>Register</h2>  
 
         <div class="error" id="error-message"></div> <!-- Error message display -->  
+        <div class="success" id="success-message"></div> <!-- Success message display -->  
 
         <input type="text" id="name" placeholder="Full Name" required>  
         <input type="email" id="email" placeholder="Email" required>  
@@ -76,7 +83,7 @@
     </form>  
 
     <script>  
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {  
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {  
             event.preventDefault();  
 
             const name = document.getElementById('name').value;  
@@ -85,7 +92,9 @@
             const confirmPassword = document.getElementById('confirm_password').value;  
 
             const errorMessage = document.getElementById('error-message');  
+            const successMessage = document.getElementById('success-message');
             errorMessage.textContent = '';  
+            successMessage.textContent = '';
 
             // Simple validation  
             if (password !== confirmPassword) {  
@@ -93,17 +102,33 @@
                 return;  
             }  
 
-            // Here you would usually send the data to your server  
+            // Prepare data for server  
             const userData = {  
-                name: name,  
-                email: email,  
+                username: name,  // Assuming "name" is used as the username
+                email: email,
                 password: password  
             };  
 
-            console.log('User data:', userData); // For demonstration, logging to the console  
-
-            // You can implement an AJAX request to send data to your server  
-            // Example: fetch('/register', { method: 'POST', body: JSON.stringify(userData) })  
+            try {
+                const response = await fetch('/register', { 
+                    method: 'POST', 
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    }, 
+                    body: JSON.stringify(userData) 
+                });
+                
+                const responseData = await response.text(); // Get response text
+                
+                if (response.status === 201) {
+                    successMessage.textContent = responseData; // Display success message
+                } else {
+                    errorMessage.textContent = responseData || 'Registration failed'; // Display error message
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+            }
         });  
     </script>  
 

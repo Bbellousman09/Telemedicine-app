@@ -11,102 +11,91 @@
 <header>  
     <img src="reallogo.jpg" alt="Logo" class="logo"> 
     <h1>FolaUsman Telehealth</h1>  
-    <p><I>Compassionate Care, Anywhere, Anytime</I></p> 
+    <p><i>Compassionate Care, Anywhere, Anytime</i></p> 
 </header>  
 
 <nav id="navbar">  
     <div class="hamburger" onclick="toggleMenu()">  
-        <div>Home</div>  
-        <div>About</div>  
-        <div>Log in</div>  
+        <div></div>  
+        <div></div>  
+        <div></div>  
     </div>  
     <div class="menu">   
         <a href="#">Home</a>  
         <a href="#">About</a>  
         <a href="#">Services</a>  
         <a href="#">Contact</a>  
-        <a href="#">Careers</a>
-        <a href="http://localhost:3000/login.html">Log in</a> 
-
+        <a href="#">Careers</a>  
+        <a href="http://localhost:3000/login.html">Log in</a>  
     </div>  
 </nav>   
 
 <div class="container">  
     <div class="sidebar">  
-        <form action="#" method="get">  
+        <form action="#" method="get" onsubmit="handleSearch(event)">  
             <input type="text" placeholder="Search..." name="search">  
             <input type="submit" value="Search">  
         </form>   
-        <h2>Other links</h2> 
+        <h2>Other links</h2>  
         <ul>  
-           <li><a href="#">Hospitals</a></li>
-           <li><a href="#">Doctors</a></li>
-           <li><a href="#">Specialties</a></li>
-           <li><a href="#">Health Library</a></li>
+            <li><a href="#">Hospitals</a></li>  
+            <li><a href="#">Doctors</a></li>  
+            <li><a href="#">Specialties</a></li>  
+            <li><a href="#">Health Library</a></li>  
         </ul>  
     </div>  
     
     <div class="main-content">  
         <h2>Welcome to FolaUsman Telehealth</h2>  
-        <img src="docs.jpg" alt="Doctor">
-        <p>At FolaUsman Telehealth, we believe that quality healthcare should be accessible to everyone, regardless of location or circumstance.<br> <br><strong>Our mission:</strong> is to bridge the gap between patients and healthcare providers through innovative telemedicine solutions that prioritize compassionate care and patient-centered services.
-            Our Mission to provide accessible, high-quality healthcare services through telemedicine, ensuring that every individual receives compassionate care tailored to their unique needs, no matter where they are.
-            <br><br>
-            <strong>Our Vision:</strong>
-            To revolutionize healthcare delivery by creating a world where everyone has the ability to access expert medical advice and compassionate care at their fingertips, fostering healthier communities and empowering individuals to take charge of their health.
-            <br><br>
-            
-            <strong>Why Choose FolaUsman Telehealth?</strong> <br>
-            Accessibility: Our platform allows you to connect with qualified healthcare professionals from the comfort of your home, eliminating the barriers of distance and time.
-            <br>
-            Compassionate Care: We prioritize empathy and understanding in every interaction, ensuring that you feel heard and supported throughout your healthcare journey.
-            <br>
-            Comprehensive Services: From routine consultations to specialized care, our wide range of services is designed to meet your diverse healthcare needs.
-            <br>
-            User-Friendly Experience: Our intuitive platform makes it easy to book appointments, access medical advice, and manage your health records with just a few clicks.
-            <br>
-            Commitment to Excellence: Our team of experienced healthcare professionals is dedicated to providing the highest standard of care, utilizing the latest technology and best practices in telemedicine.
-            <br>
-            Get Started Today!
-            Join us at FolaUsman telehealth and experience the future of healthcare. Whether you are seeking advice for a minor ailment or managing a chronic condition, our compassionate team is here to support you every step of the way.</p>
-            
-            <p>Your health is our priority—let us take the journey together.</p>  
+        <img src="docs.jpg" alt="Doctor">  
+        <p>At FolaUsman Telehealth, we believe that quality healthcare should be accessible to everyone, regardless of location or circumstance.<br><br><strong>Our mission:</strong> is to bridge the gap between patients and healthcare providers through innovative telemedicine solutions that prioritize compassionate care and patient-centered services.<br><br>
+        Our Mission is to provide accessible, high-quality healthcare services through telemedicine, ensuring that every individual receives compassionate care tailored to their unique needs, no matter where they are.<br><br>
+        <strong>Our Vision:</strong> To revolutionize healthcare delivery by creating a world where everyone has the ability to access expert medical advice and compassionate care at their fingertips, fostering healthier communities and empowering individuals to take charge of their health.<br><br>
+        <strong>Why Choose FolaUsman Telehealth?</strong><br>
+        Accessibility: Our platform allows you to connect with qualified healthcare professionals from the comfort of your home, eliminating the barriers of distance and time.<br>
+        Compassionate Care: We prioritize empathy and understanding in every interaction, ensuring that you feel heard and supported throughout your healthcare journey.<br>
+        Comprehensive Services: From routine consultations to specialized care, our wide range of services is designed to meet your diverse healthcare needs.<br>
+        User-Friendly Experience: Our intuitive platform makes it easy to book appointments, access medical advice, and manage your health records with just a few clicks.<br>
+        Commitment to Excellence: Our team of experienced healthcare professionals is dedicated to providing the highest standard of care, utilizing the latest technology and best practices in telemedicine.<br><br>
+        Get Started Today! Join us at FolaUsman Telehealth and experience the future of healthcare. Whether you are seeking advice for a minor ailment or managing a chronic condition, our compassionate team is here to support you every step of the way.</p>
+        
+        <p>Your health is our priority—let us take the journey together.</p>  
     </div>  
 </div>  
 
 <footer>  
     <p>&copy; 2024 FolaUsman Telehealth. All rights reserved.</p>  
-                <div>  
-                    <a href="#facebook" class="text-white">Facebook</a> |  
-                    <a href="#twitter" class="text-white">Twitter</a> |  
-                    <a href="#linkedin" class="text-white">LinkedIn</a>  
-                </div>   
+    <div>  
+        <a href="#facebook" class="text-white">Facebook</a> |  
+        <a href="#twitter" class="text-white">Twitter</a> |  
+        <a href="#linkedin" class="text-white">LinkedIn</a>  
+    </div>   
 </footer>  
+
 <script>  
-    // Hamburger Menu Toggle  
-    
-    function toggleMenu() {  
+// Hamburger Menu Toggle  
+function toggleMenu() {  
     const navbar = document.getElementById('navbar');  
     navbar.classList.toggle('open'); // Add or remove the 'open' class to control the menu visibility  
 }
-    
-    // Search Functionality  
-    function handleSearch(event) {  
-        event.preventDefault();  
-        const searchTerm = document.querySelector('input[name="search"]').value;  
-        alert(`Searching for: ${searchTerm}`);  
-    }  
-    
-    // Smooth Scrolling for Internal Links  
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {  
-        anchor.addEventListener('click', function (e) {  
-            e.preventDefault();  
-            document.querySelector(this.getAttribute('href')).scrollIntoView({  
-                behavior: 'smooth'  
-            });  
+
+// Search Functionality  
+function handleSearch(event) {  
+    event.preventDefault();  
+    const searchTerm = document.querySelector('input[name="search"]').value;  
+    alert(`Searching for: ${searchTerm}`);  
+}
+
+// Smooth Scrolling for Internal Links  
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {  
+    anchor.addEventListener('click', function (e) {  
+        e.preventDefault();  
+        document.querySelector(this.getAttribute('href')).scrollIntoView({  
+            behavior: 'smooth'  
         });  
     });  
-    </script>  
+});
+</script>  
 
 </body>  
-</html>  
+</html>
